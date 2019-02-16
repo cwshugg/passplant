@@ -1,8 +1,10 @@
 # passplant
-Your personal password generator.
+Your personal password generator! No two passwords are alike! (unless of course, you happen to get the same exact password with the same length, words, symbols, and numbers... not super likely.)
 
 # What?
-This is a personal project I thought to create. The idea is to create passwords that are both secure and memorable, not just a long string of digits and letters.
+This is a personal project I thought to create. The idea is to create passwords that are both secure and memorable, not just a long string of digits and letters. My plan is to have it pull most of its words from random word banks.
+
+In some cases, though, I plan on having the program ask the user a question every once in a while (i.e. "What's your favorite color?"). It'll log your response and you might see that word in a password every now and then.
 
 # Why?
 I'm not the best at giving my passwords variety, and while I've certainly tried to use the various services out there that store and save your passwords, I never really liked the passwords they recommended (something like: djz5214Jwhy23_31!?@az). Instead, I'd much rather prefer a password just as long, but something a little more memorable (like the well-known "correctHorseBatteryStaple" thanks to xkcd: https://xkcd.com/936/).
