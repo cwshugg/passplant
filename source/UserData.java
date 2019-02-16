@@ -18,14 +18,12 @@ import java.util.ArrayList;
  */
 public class UserData
 {
-	private String filePath;
-	private String fileName;
+	private String filePath;			// the path to the save file
+	private String fileName;			// the name of the save file
 	
-	private String userName;
-	private int favNumber;
-	private String favColor;
-	private ArrayList<String> favWords;
-	
+	private String userName;			// name of the user
+	private ArrayList<String> favWords;	// a list of the user's
+										// "favorite words"	
 	
 	/**
 	 * Default constructor: Creates the UserData object,
@@ -37,14 +35,12 @@ public class UserData
 	{
 		// create default UserData setup
 		userName = null;
-		favNumber = 0;
-		favColor = null;
 		favWords = new ArrayList<String>();
 		
 		// set up the file path/name for the userData file
 		fileName = "userData.txt";
 		filePath = Paths.get("").toAbsolutePath().toString()
-				 + "\\src\\" + fileName;
+				 + "\\data_user\\" + fileName;
 		
 		// search for a save-file
 		loadUserData();
@@ -61,24 +57,6 @@ public class UserData
 		return userName;
 	}
 
-	/**
-	 * Getter method for the user's favorite number
-	 * @return an integer - the user's favorite number
-	 */
-	public int getFavNumber()
-	{
-		return favNumber;
-	}
-	
-	/**
-	 * Getter method for the user's favorite color
-	 * @return a string - the user's favorite color
-	 */
-	public String getFavColor()
-	{
-		return favColor;
-	}
-	
 	/**
 	 * Getter method for the user's favorite words.
 	 * @return an array of strings - the user's favorite words
@@ -97,24 +75,6 @@ public class UserData
 	public void setUserName(String name)
 	{
 		userName = name;
-	}
-	
-	/**
-	 * Setter method for the user's favorite number
-	 * @param num - the new favorite number
-	 */
-	public void setFavNumber(int num)
-	{
-		favNumber = num;
-	}
-	
-	/**
-	 * Setter method for the user's favorite color
-	 * @param color - the new favorite color
-	 */
-	public void setFavColor(String color)
-	{
-		favColor = color;
 	}
 	
 	/**
@@ -176,6 +136,16 @@ public class UserData
 				{
 					userName = pieces[1];
 				}
+				else if (pieces[0].equals("favWords"))
+				{
+					// loop through the rest of pieces[] and add
+					// them to the list of favWords
+					for (int i = 1; i < pieces.length; i++)
+					{
+						if (!favWords.contains(pieces[i]))
+						{ favWords.add(pieces[i]); }
+					}
+				}
 			}
 			
 			// close the scanner
@@ -210,8 +180,6 @@ public class UserData
 				
 				// write userName, favorite number, and color
 				writer.println("name," + userName);
-				writer.println("favNumber," + favNumber);
-				writer.println("favColor," + favColor);
 				
 				// write each favorite word
 				writer.print("favWords,");
@@ -233,4 +201,6 @@ public class UserData
 			}
 		}
 	}
+
+
 }
