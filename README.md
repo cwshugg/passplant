@@ -1,8 +1,8 @@
-# passplant
-Your personal password generator! No two passwords are alike! (unless of course, you happen to get the same exact password with the same length, words, symbols, and numbers... not super likely.)
+# Passwords should probably be like snowflakes...
+No two are alike! (unless of course, you're using this generator and you happen to get the same exact password with the same length, words, symbols, and numbers... not super likely.)
 
 # What?
-This is a personal project I thought to create. The idea is to create passwords that are both secure and memorable, not just a long string of digits and letters. My plan is to have it pull most of its words from random word banks.
+Your personal password generator! This is a personal project I thought to create. The idea is to create passwords that are both secure and memorable, not just a long string of digits and letters. My plan is to have it pull most of its words from random word banks.
 
 In some cases, though, I plan on having the program ask the user a question every once in a while (i.e. "What's your favorite color?"). It'll log your response and you might see that word in a password every now and then.
 
@@ -12,5 +12,5 @@ I'm not the best at giving my passwords variety, and while I've certainly tried 
 Thus, I decided to write a small password generator that asks you a few questions and uses your personal preferences to generate something long, secure, and most importantly, interesting.
 
 CREDIT WHERE IT'S DUE:
-I found a great public repo containing lots of commonly-used english words. Here it is:
+I found a great public repo containing lots of commonly-used english words. I've used some of these to generate most words in the generator. Here it is:
 https://github.com/first20hours/google-10000-english
