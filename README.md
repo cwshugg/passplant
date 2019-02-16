@@ -2,7 +2,7 @@
 No two are alike! (unless of course, you're using this generator and you happen to get the same exact password with the same length, words, symbols, and numbers... not super likely.)
 
 # What is this?
-Your personal password generator! This is a personal project I thought to create. The idea is to create passwords that are both secure and memorable, not just a long string of digits and letters. My plan is to have it pull most of its words from random word banks.
+Your personal password generator! This is a quick side project I whipped up. The idea is to create passwords that are both secure and memorable, not just a long string of digits and letters. My plan is to have it pull most of its words from random word banks.
 
 In some cases, though, I plan on having the program ask the user a question every once in a while (i.e. "What's your favorite color?"). It'll log your response and you might see that word in a password every now and then.
 
