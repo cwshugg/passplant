@@ -58,7 +58,7 @@ public class WordFinder
 		
 		// CASE 1: pull from the User's "favorite word" database
 		// (as long as the user HAS favorite words)
-		if (x < 25 && user.getFavWords().length > 0)
+		if (x < 15 && user.getFavWords().length > 0)
 		{
 			String result = findUserWord();
 			return result;
