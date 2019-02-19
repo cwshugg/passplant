@@ -50,6 +50,18 @@ public class Generator
 		lengthRange[1] = 24;
 	}
 	
+	
+	// -------------------- Getter Methods -------------------- //
+	/**
+	 * Retrieves the generator's UserData.
+	 * @return UserData object instance
+	 */
+	public UserData getUserData()
+	{
+		return user;
+	}
+	
+	
 	// -------------------- Setter Methods -------------------- //
 	/**
 	 * Sets the indicator boolean on whether or not to
@@ -101,6 +113,15 @@ public class Generator
 		// set the generator's range
 		lengthRange[0] = lowerBound;
 		lengthRange[1] = upperBound;
+	}
+	
+	/**
+	 * Sets the Generator's UserData to the given UserData object
+	 * @param u - the new UserData
+	 */
+	public void setUserData(UserData u)
+	{
+		user = u;
 	}
 	
 	

@@ -102,7 +102,7 @@ public class UserData
 		if (userFile.isFile())
 		{
 			return userFile;
-		}
+		}		
 		
 		// otherwise, the file must not have been found
 		return null;
@@ -178,17 +178,21 @@ public class UserData
 				// open a PrintWriter object
 				PrintWriter writer = new PrintWriter(filePath, "UTF-8");
 				
-				// write userName, favorite number, and color
-				writer.println("name," + userName);
+				// write userName
+				if (userName != null)
+				{ writer.println("name," + userName); }
 				
 				// write each favorite word
-				writer.print("favWords,");
 				String[] words = getFavWords();
-				for (int i = 0; i < words.length - 1; i++)
+				if (words.length > 0)
 				{
-					writer.print(words[i] + ",");
+					writer.print("favWords,");
+					for (int i = 0; i < words.length - 1; i++)
+					{
+						writer.print(words[i] + ",");
+					}
+					writer.print(words[words.length - 1] + "\n");
 				}
-				writer.print(words[words.length - 1] + "\n");
 				
 				// close the writer
 				writer.close();
