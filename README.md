@@ -14,3 +14,7 @@ Thus, I decided to write a small password generator that asks you a few question
 CREDIT WHERE IT'S DUE:
 I found a great public repo containing lots of commonly-used english words. I've used some of these to generate most words in the generator. Here it is: (https://github.com/first20hours/google-10000-english).
 I also borrowed some ASCII art from this site: (https://www.asciiart.eu/holiday-and-events/christmas/snowmen)
+Lastly, I used the the free software located at (http://www.jar2exe.com/) to convert the .jar file into an .exe file.
+
+# Want to try it out?
+Download the latest folder inside the "download" folder. Be sure to take a look at the README inside to get a good idea on how to use it.
