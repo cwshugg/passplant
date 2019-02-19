@@ -12,5 +12,5 @@ I'm not the best at giving my passwords variety, and while I've certainly tried 
 Thus, I decided to write a small password generator that asks you a few questions and uses your personal preferences to generate something long, secure, and most importantly, interesting.
 
 CREDIT WHERE IT'S DUE:
-I found a great public repo containing lots of commonly-used english words. I've used some of these to generate most words in the generator. Here it is:
-https://github.com/first20hours/google-10000-english
+I found a great public repo containing lots of commonly-used english words. I've used some of these to generate most words in the generator. Here it is: (https://github.com/first20hours/google-10000-english).
+I also borrowed some ASCII art from this site: (https://www.asciiart.eu/holiday-and-events/christmas/snowmen)
