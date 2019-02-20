@@ -61,6 +61,36 @@ public class Generator
 		return user;
 	}
 	
+	/**
+	 * Retrieves whether or not the generator is set to
+	 * us underscores in password generation
+	 * @return a boolean, indicating underscore usage
+	 */
+	public boolean getUseUnderscores()
+	{
+		return useUnderscores;
+	}
+	
+	/**
+	 * Retrieves whether or not the generator is set to
+	 * us symbols in password generation
+	 * @return a boolean, indicating symbol usage
+	 */
+	public boolean getUseSymbols()
+	{
+		return useSymbols;
+	}
+	
+	/**
+	 * Retrieves whether or not the generator is set to
+	 * us numbers in password generation
+	 * @return a boolean, indicating number usage
+	 */
+	public boolean getUseNumbers()
+	{
+		return useNumbers;
+	}
+	
 	
 	// -------------------- Setter Methods -------------------- //
 	/**

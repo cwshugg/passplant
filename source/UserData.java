@@ -23,7 +23,7 @@ public class UserData
 	
 	private String userName;			// name of the user
 	private ArrayList<String> favWords;	// a list of the user's
-										// "favorite words"	
+										// "favorite words"
 	
 	/**
 	 * Default constructor: Creates the UserData object,
@@ -66,6 +66,17 @@ public class UserData
 		return favWords.toArray(new String[favWords.size()]);
 	}
 	
+	/**
+	 * Determines if the UserData already has the given
+	 * word in its "favorite word" bank
+	 * @param word - the word to search for
+	 * @return a boolean indicating if the word was found
+	 */
+	public boolean hasFavWord(String word)
+	{
+		return favWords.contains(word);
+	}
+	
 	
 	// -------------------- Setter Methods -------------------- //
 	/**
@@ -86,6 +97,14 @@ public class UserData
 		favWords.add(word);
 	}
 
+	/**
+	 * Empties all entries from the list of favorite words
+	 */
+	public void clearWords()
+	{
+		favWords.clear();
+	}
+	
 	
 	// ------------------ Loading and Saving ------------------ //
 	/**

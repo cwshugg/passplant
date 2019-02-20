@@ -123,16 +123,19 @@ public class Prompter
 			switch (choice)
 			{
 				case 0:		// chose "Make Passwords"
-					printConsoleLine(MessageType.STANDARD, "You chose to make passwords.");
 					promptPasswords(gen);
 					break;
 					
 				case 1:		// chose "Password Settings"
-					printConsoleLine(MessageType.STANDARD, "You chose to adjust password settings.");
+					gen = passwordSettings(gen);
 					break;
 					
 				case 2:		// chose "Personalize"
-					printConsoleLine(MessageType.STANDARD, "You chose to personalize.");
+					ud = addToWordBank(ud);
+					// set the generator's UserData and save the
+					// UserData to a file
+					gen.setUserData(ud);
+					ud.saveUserData();
 					break;
 			}
 			
@@ -319,6 +322,193 @@ public class Prompter
 		printPasswords(passwords);
 	}
 	
+	/**
+	 * Prompts the user to adjust various settings regarding
+	 * password generation
+	 * @param gen - the generator to use for password generation
+	 * @return returns the modified generator object
+	 */
+	private static Generator passwordSettings(Generator gen)
+	{
+		String response = "";
+		// repeat this entire process until the user wants out
+		while (!response.contains("back"))
+		{
+			// set up strings to indicate usages
+			String numUsage = "OFF";
+			if (gen.getUseNumbers())
+			{ numUsage = "ON"; }
+			
+			String symUsage = "OFF";
+			if (gen.getUseSymbols())
+			{ symUsage = "ON"; }
+			
+			String undUsage = "OFF";
+			if (gen.getUseUnderscores())
+			{ undUsage = "ON"; }
+			
+			// print the menu
+			printConsoleLine(MessageType.PLAIN, "");
+			printConsoleLine(MessageType.STANDARD, "What would you like to adjust?");
+			printConsoleLine(MessageType.HEADER, "  1) Toggle Number Usage       (Currently: " + numUsage + ")");
+			printConsoleLine(MessageType.HEADER, "  2) Toggle Symbol Usage       (Currently: " + symUsage + ")");
+			printConsoleLine(MessageType.HEADER, "  3) Toggle Underscore Usage   (Currently: " + undUsage + ")");
+		
+			// get user input
+			int decision = -1;
+			while (decision < 0)
+			{
+				// read the user response
+				response = readLine().toLowerCase();
+				
+				// chose "back"
+				if (response.contains("back"))
+				{ decision = 0; }
+				// chose "Toggle Number Usage"
+				else if (response.contains("1") || response.contains("number"))
+				{ decision = 1; }
+				// chose "Toggle Symbol Usage"
+				else if (response.contains("2") || response.contains("symbol"))
+				{ decision = 2; }
+				// chose "Toggle Underscore Usage"
+				else if (response.contains("3") || response.contains("underscore"))
+				{ decision = 3; }
+				// didn't choose any of the valid responses
+				else
+				{
+					printConsoleLine(MessageType.ERROR, "Sorry that's not a valid choice. (You can always say \"back\")");
+				}			
+			}
+			
+			// determine what to adjust with the decision
+			switch (decision)
+			{
+				case 1:
+					// flip the number usage preference
+					gen.userWantsNumbers(!gen.getUseNumbers());
+					// print out the result
+					if (numUsage.equals("OFF"))
+					{ printConsoleLine(MessageType.STANDARD, "Number usage is now ON"); }
+					else
+					{ printConsoleLine(MessageType.STANDARD, "Number usage is now OFF"); }
+					break;
+				
+				case 2:
+					// flip the symbol usage preference
+					gen.userWantsSymbols(!gen.getUseSymbols());
+					// print out the result
+					if (symUsage.equals("OFF"))
+					{ printConsoleLine(MessageType.STANDARD, "Symbol usage is now ON"); }
+					else
+					{ printConsoleLine(MessageType.STANDARD, "Symbol usage is now OFF"); }
+					break;
+					
+				case 3:
+					// flip the underscore usage prefrence
+					gen.userWantsUnderscores(!gen.getUseUnderscores());
+					// print out the result
+					if (undUsage.equals("OFF"))
+					{ printConsoleLine(MessageType.STANDARD, "Underscore usage is now ON"); }
+					else
+					{ printConsoleLine(MessageType.STANDARD, "Underscore usage is now OFF"); }
+			}
+			
+		}
+		
+		// return the modified generator
+		return gen;
+	}
+	
+	/**
+	 * Function that allows the user to add their favorite
+	 * words to their personal word bank.
+	 * @param user - the UserData object to modify
+	 * @return the modified UserData object
+	 */
+	private static UserData addToWordBank(UserData user)
+	{
+		// print the introduction
+		printSnowman();
+		printConsoleLine(MessageType.DIALOGUE, "Do you want your passwords to be a bit more interesting?");
+		printConsoleLine(MessageType.DIALOGUE, "You can tell me some of your favorite words here.");
+		printConsoleLine(MessageType.DIALOGUE, "I'll remember them, and you'll see those words in future passwords!");
+		printConsoleLine(MessageType.PLAIN, "");
+
+		printConsoleLine(MessageType.STANDARD, "(You can say \"back\" to return to the main menu.)");
+		printConsoleLine(MessageType.STANDARD, "(You can say \"view\" to see all the words in your word bank.)");
+		printConsoleLine(MessageType.STANDARD, "(You can say \"clear\" to empty your word bank.");
+		printConsoleLine(MessageType.PLAIN, "");
+		
+		// go through this entire process until the user
+		// is done adding words to their word bank
+		boolean done = false;
+		while (!done)
+		{
+			// print the "header"
+			printConsoleLine(MessageType.STANDARD, "Enter a word, and press enter to add it to your word bank.");
+			
+			// get user input
+			String response = readLine().toLowerCase();
+			
+			// if the user wants out, exit the loop
+			if (response.contains("back"))
+			{ done = true; }			
+			// if the user wants to view their words:
+			else if (response.contains("view"))
+			{
+				printSnowman();
+				String[] words = user.getFavWords();
+				
+				if (words.length > 0)
+				{
+					printConsoleLine(MessageType.DIALOGUE, "Here are all the words you've had me remember:");
+					// iterate through each word and print it out
+					for (int i = 0; i < words.length; i ++)
+					{
+						printConsoleLine(MessageType.PLAIN, words[i]);
+					}
+				}
+				else
+				{
+					printConsoleLine(MessageType.DIALOGUE, "You haven't told me to remember any words!");
+				}
+			}
+			// if the user wants to empty their word bank
+			else if (response.contains("clear"))
+			{
+				// clear the words!
+				user.clearWords();
+				printConsoleLine(MessageType.STANDARD, "Your word bank has been cleared.");
+			}
+			// otherwise, add the word to the word bank
+			// (as long as it's one word)
+			else
+			{
+				if (!response.contains(" ") && !response.isEmpty())
+				{
+					// make sure the list already doesn't have this word
+					if (!user.hasFavWord(response))
+					{
+						// add the word to the word bank
+						user.addFavWord(response);
+						// report that the word was added
+						printConsoleLine(MessageType.STANDARD, "\"" + response + "\"" + " has been added to your word bank.");
+					}
+					else
+					{ printConsoleLine(MessageType.STANDARD, "You already have this word in your word bank!"); }
+				}
+				else
+				{
+					printConsoleLine(MessageType.ERROR, "Make sure you only enter one word per line!");
+				}
+			}
+			
+			printConsoleLine(MessageType.PLAIN, "");
+		}
+		
+		// return the modified UserData object
+		return user;
+	}
 	
 	// ------------ Command-Line Argument Handling ------------- //
 	/**
@@ -453,6 +643,7 @@ public class Prompter
 		return gen;
 		
 	}
+	
 	
 	// ------------------- Printing Methods ------------------- //
 	/**
