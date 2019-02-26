@@ -3,7 +3,7 @@
 __Passwords should probably be like snowflakes...__ no two are alike! (unless of course, you're using this generator and you happen to get the same exact password with the same length, words, symbols, and numbers... not super likely, though.)
 
 # What is this?
-Your personal password generator! This is a quick side project I whipped up. The idea is to create passwords that are both secure and memorable, not just a long string of digits and letters. Most of the words used are randomly pulled from word banks.
+A password generator! This is a quick side project I whipped up. The idea is to create passwords that are both secure and memorable, not just a long string of digits and letters. Most of the words used are randomly pulled from word banks.
 
 There's also an option that exists that allows you to log your "favorite words." Once you do so, you'll occasionally see some of those words in passwords the tool generates. Hopefully that should make for passwords that are a little more relevant to you and your interests.
 
