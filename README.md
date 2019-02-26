@@ -1,5 +1,6 @@
-# Passwords should probably be like snowflakes...
-No two are alike! (unless of course, you're using this generator and you happen to get the same exact password with the same length, words, symbols, and numbers... not super likely, though.)
+# The "Snowflake Password Generator"
+
+__Passwords should probably be like snowflakes...__ no two are alike! (unless of course, you're using this generator and you happen to get the same exact password with the same length, words, symbols, and numbers... not super likely, though.)
 
 # What is this?
 Your personal password generator! This is a quick side project I whipped up. The idea is to create passwords that are both secure and memorable, not just a long string of digits and letters. Most of the words used are randomly pulled from word banks.
