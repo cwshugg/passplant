@@ -21,7 +21,8 @@ Lastly, I used the the free software located at (http://www.jar2exe.com/) to con
 Download the latest folder inside the "download" folder. Be sure to take a look at the README inside to get a good idea on how to use it.
 
 # Future Plans
-I'm hoping to implement the following features when I find some spare time
+I'm hoping to implement the following features when I find some spare time:
 - Remembering last-used password settings from the last session
 - Writing generated passwords to a file for easy copying
+- Using a HTTP GET to ping a random word generator online (having the old file-reading technique as a backup when Internet isn't available)
 - A password-protected storage area for past-used passwords (including notes with the password, such as what website it's for, a corresponding username, etc.)
