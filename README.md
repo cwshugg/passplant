@@ -24,5 +24,5 @@ Download the latest folder inside the "download" folder. Be sure to take a look 
 I'm hoping to implement the following features when I find some spare time:
 - Remembering last-used password settings from the last session
 - Writing generated passwords to a file for easy copying
-- Using a HTTP GET to ping a random word generator online (having the old file-reading technique as a backup when Internet isn't available)
+- Using a HTTP GET to ping a random word generator online (having the old file-reading technique as a backup when Internet isn't available). (Words would be stored in a buffer that refills itself whenever empty, to minimize GETs)
 - A password-protected storage area for past-used passwords (including notes with the password, such as what website it's for, a corresponding username, etc.)
