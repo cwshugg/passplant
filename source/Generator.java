@@ -219,7 +219,11 @@ public class Generator
 			// trim the password a little before moving
 			// onto the next one
 			passwords[i] = trimPassword(passwords[i]);
+			
+			// provide some output to the console
+			System.out.print("\rFinished " + (i + 1) + "/" + count);
 		}
+		System.out.println();
 		
 		// return the created passwords
 		return passwords;

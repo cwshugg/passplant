@@ -72,9 +72,7 @@ public class Prompter
 			// if passwords weren't generated, move onto the
 			// "main" program
 			if (!generated)
-			{
-				mainThread(pgen);
-			}
+			{ mainThread(pgen);	}
 		
 		}
 		catch (Exception e)
@@ -119,6 +117,9 @@ public class Prompter
 		// repeat this process while the user doesn't want to quit
 		while (choice != 3)
 		{
+			// clear the console
+			clearConsole();
+			
 			// determine what to do after the user chooses
 			switch (choice)
 			{
@@ -317,6 +318,7 @@ public class Prompter
 		printConsoleLine(MessageType.STANDARD, "Generating passwords...");
 		printConsoleLine(MessageType.PLAIN, "");
 		String[] passwords = gen.makePasswords(count);
+		printConsoleLine(MessageType.PLAIN, "");
 		
 		// print the passwords!
 		printPasswords(passwords);
@@ -334,6 +336,9 @@ public class Prompter
 		// repeat this entire process until the user wants out
 		while (!response.contains("back"))
 		{
+			// clear the console
+			clearConsole();
+			
 			// set up strings to indicate usages
 			String numUsage = "OFF";
 			if (gen.getUseNumbers())
@@ -553,10 +558,12 @@ public class Prompter
 				int numPasswords = Integer.parseInt(args[quickIndex + 1]);				
 				printConsoleLine(MessageType.STANDARD,
 						"Quick-generation: generating " + numPasswords + " passwords...");
-				printConsoleLine(MessageType.PLAIN, "");;
+				printConsoleLine(MessageType.PLAIN, "");
 				
 				// create the passwords and print them out
-				printPasswords(gen.makePasswords(numPasswords));
+				String[] passwords = gen.makePasswords(numPasswords);
+				printConsoleLine(MessageType.PLAIN, "");
+				printPasswords(passwords);
 				
 				return true;
 			}
@@ -676,7 +683,7 @@ public class Prompter
 				break;
 		}
 		
-		System.out.println(prefix + printMe + suffix);
+		System.out.print(prefix + printMe + suffix + "\n");
 	}
 	
 	/**
@@ -780,10 +787,21 @@ public class Prompter
 		printConsoleLine(MessageType.PLAIN, "");
 		printConsoleLine(MessageType.ERROR, "Make sure the following is true:");
 		printConsoleLine(MessageType.ERROR, "    1) There's two folders in the same directory as the executable:");
-		printConsoleLine(MessageType.ERROR, "       \"data_user\" and \"data_words\".");
-		printConsoleLine(MessageType.ERROR, "    2) \"data_user\" contains a text file called \"userData.txt\".");
+		printConsoleLine(MessageType.ERROR, "       \"data\" and \"data_words\".");
+		printConsoleLine(MessageType.ERROR, "    2) \"data\" contains a text file called \"userData.txt\".");
 		printConsoleLine(MessageType.ERROR, "       (if one isn't there, you can create an empty one.)");
-		printConsoleLine(MessageType.ERROR, "    3) \"data_words\" has all the \"words<0-9>.txt\" text files inside it.");
+		printConsoleLine(MessageType.ERROR, "    3) \"data\" contains a text file called \"genData.txt\".");
+		printConsoleLine(MessageType.ERROR, "       (if one isn't there, you can create an empty one.)");
+		printConsoleLine(MessageType.ERROR, "    4) \"data_words\" has all the \"words<0-9>.txt\" text files inside it.");
+	}
+	
+	/**
+	 * Helper method that clears the console's contents
+	 */
+	private static void clearConsole()
+	{
+		for (int i = 0; i < 10; i++)
+		{ System.out.println("\n\n\n\n\n\n\n\n\n\n"); }
 	}
 	
 }

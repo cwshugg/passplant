@@ -23,7 +23,7 @@ public class UserData
 	
 	private String userName;			// name of the user
 	private ArrayList<String> favWords;	// a list of the user's
-										// "favorite words"
+										// "favorite words"	
 	
 	/**
 	 * Default constructor: Creates the UserData object,
@@ -40,7 +40,7 @@ public class UserData
 		// set up the file path/name for the userData file
 		fileName = "userData.txt";
 		filePath = Paths.get("").toAbsolutePath().toString()
-				 + "\\data_user\\" + fileName;
+				 + "\\data\\" + fileName;
 		
 		// search for a save-file
 		loadUserData();
@@ -224,6 +224,5 @@ public class UserData
 			}
 		}
 	}
-
 
 }
