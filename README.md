@@ -22,11 +22,12 @@ Download the latest folder inside the "download" folder. Be sure to take a look 
 
 # Future Plans
 I'm hoping to implement the following features when I find some spare time:
-**Plausible**
+**Near Future**
 - Remembering last-used password settings from the last session
 - Writing generated passwords to a file for easy copying
+- Making the UserData and Generator classes serializable, so the entire object can be saved/read upon startup, rather than fingaling with writing specified strings to a file and reading them
 - Using a HTTP GET to ping a random word generator online (having the old file-reading technique as a backup when Internet isn't available). (Words would be stored in a buffer that refills itself whenever empty, to minimize GETs)
 
-**Stretching it/slightly Far-fetched** 
+**Might be a stretch.. but maybe**
 - A password-protected storage area for past-used passwords (including notes with the password, such as what website it's for, a corresponding username, etc.)
 - Themed word-generation based on nearby holidays/current events, or user-specified "theme files"
