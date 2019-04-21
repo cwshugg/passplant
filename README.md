@@ -8,7 +8,7 @@ A password generator! This is a quick side project I whipped up. The idea is to 
 There's also an option that exists that allows you to log your "favorite words." Once you do so, you'll occasionally see some of those words in passwords the tool generates. Hopefully that should make for passwords that are a little more relevant to you and your interests.
 
 # Why make it?
-I'm not the best at giving my passwords variety, and while I've certainly tried to use the various services out there that store and save your passwords, I never really liked the passwords they recommended (something like: djz5214Jwhy23_31!?@az). Instead, I'd much rather prefer a password just as long, but something a little more memorable (like the well-known "correctHorseBatteryStaple" thanks to xkcd: https://xkcd.com/936/).
+I'm not the best at giving my passwords variety, and while I've certainly tried to use the various services out there that store and save your passwords, I never really liked the passwords they recommended (something like: djz5214Jwhy23_31!?$az). Instead, I'd much rather prefer a password just as long, but something a little more memorable (like the well-known "correctHorseBatteryStaple" thanks to xkcd: https://xkcd.com/936/).
 
 Thus, I decided to write a small password generator that asks you a few questions and uses your personal preferences to generate something long, secure, and most importantly, interesting.
 
