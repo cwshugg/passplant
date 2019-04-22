@@ -37,5 +37,5 @@ Version: 2019-4-19
 -"data_words" holds several files containing random english words (each being 1000 lines long,
  or shorter). You're welcome to change these, but make sure they don't go over 1000 lines. If
  they do, the words on the lines above 1000 will not be used to generate passwords. (Also:
- keep it at one word per line, and keep the file names the same.)
+ keep it at one word per line, and keep the file names the same.) (I know.. not very robust)
 
