@@ -27,6 +27,7 @@ I'm hoping to implement the following features when I find some spare time:
 - Remembering last-used password settings from the last session
 - Writing generated passwords to a file for easy copying
 - Making the UserData and Generator classes serializable, so the entire object can be saved/read upon startup, rather than fingaling with writing specified strings to a file and reading them
+- Using IFTTT to send passwords to your phone
 - Using a HTTP GET to ping a random word generator online (having the old file-reading technique as a backup when Internet isn't available). (Words would be stored in a buffer that refills itself whenever empty, to minimize GETs)
 
 **Might be a stretch.. but maybe**
